@@ -1,11 +1,8 @@
 import torch
 import numpy as np
 import torch.nn as nn
-from torch.nn import functional as F
-from torch.autograd import Variable
 from torch.utils.data import DataLoader
 import time
-from torch.optim.lr_scheduler import ExponentialLR
 
 class ModelWrapper(nn.Module):
     '''

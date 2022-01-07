@@ -3,7 +3,7 @@ import json
 import shutil
 from model import ModelVad
 from dataset import AVADataset
-from training.prepare import create_spec_dataset, create_train_test_dataset
+from training.prepare import create_train_test_dataset, create_spec_dataset_only_speech
 from training.train_metrics import test_result, plot_PR_ROC
 from torch.utils.data import DataLoader
 import torch
@@ -19,7 +19,7 @@ if __name__ == '__main__':
     metric = metrics.roc_auc_score
     criterion = torch.nn.BCELoss()
 
-    labels = create_spec_dataset(config['speech_labels_path'], config['path_to_save_specs'], config['delimiter'])
+    labels = create_spec_dataset_only_speech(config['speech_labels_path'], config['path_to_save_specs'], config['delimiter'])
 
     np.save(config['path_to_save_specs'] + '/labels', labels)
 
